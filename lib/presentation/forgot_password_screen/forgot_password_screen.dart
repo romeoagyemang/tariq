@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tariq/presentation/login_screen/login_screen.dart';
+import 'package:tariq/presentation/otp_verification_screen/otp_verify_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   @override
@@ -69,7 +70,12 @@ class ForgotPasswordScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Reset Password Action
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OtpVerificationScreen(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1F41BB),
@@ -89,7 +95,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(),
+            const SizedBox(
+              height: 250,
+            ),
             // Remember Password? Login
             Center(
               child: GestureDetector(

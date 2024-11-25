@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tariq/presentation/choose_account_screen/option_screen.dart';
 import 'package:tariq/presentation/login_screen/login_screen.dart';
 
 class OnboardScreen extends StatelessWidget {
@@ -28,6 +29,7 @@ class OnboardScreen extends StatelessWidget {
               'Discover your Events and Dream Job here',
               style: TextStyle(
                 fontFamily: "Satoshi",
+                fontWeight: FontWeight.bold,
                 fontSize: 30,
                 color: Color(0xFF1F41BB),
               ),
@@ -79,7 +81,12 @@ class OnboardScreen extends StatelessWidget {
                 // Signup TextButton
                 TextButton(
                   onPressed: () {
-                    // Navigate to signup screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OptionsScreen(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'Register',
