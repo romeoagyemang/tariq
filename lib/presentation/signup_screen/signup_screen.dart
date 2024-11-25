@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tariq/presentation/forgot_password_screen/forgot_password_screen.dart';
-import 'package:tariq/presentation/signup_screen/signup_screen.dart';
+import 'package:tariq/presentation/login_screen/login_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,7 @@ class LoginScreen extends StatelessWidget {
 
               // Login Header
               const Text(
-                'Login Here',
+                'Create Account',
                 style: TextStyle(
                   fontSize: 30,
                   fontFamily: "Satoshi",
@@ -30,7 +29,7 @@ class LoginScreen extends StatelessWidget {
 
               // Description
               const Text(
-                "Welcome back you’ve been missed!",
+                "Create an account so you can explore all the existing jobs",
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey,
@@ -38,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 35),
 
               // Email Field
               TextField(
@@ -71,26 +70,24 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ForgotPasswordScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    'Forgot Password?',
-                    style: TextStyle(
+              const SizedBox(height: 20),
+
+              // Password Field
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  filled: true,
+                  fillColor: Color(0xFFF1F4FF),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: const BorderSide(
                       color: Color(0xFF1F41BB),
-                      fontFamily: "Satoshi",
                     ),
                   ),
                 ),
               ),
+
               const SizedBox(height: 50),
 
               // Sign In Button
@@ -106,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Sign In',
+                  'Sign up',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,
@@ -123,12 +120,12 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignupScreen(),
+                      builder: (context) => LoginScreen(),
                     ),
                   );
                 },
                 child: const Text(
-                  'Create New Account',
+                  'Already Have an account',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.grey,
@@ -151,7 +148,7 @@ class LoginScreen extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                     child: Text(
-                      'or login With',
+                      'or signup with',
                       style: TextStyle(color: Colors.grey),
                     ),
                   ),
@@ -165,7 +162,7 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Social Media Buttons
+// Social Media Buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
