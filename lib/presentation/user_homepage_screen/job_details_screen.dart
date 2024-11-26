@@ -17,6 +17,7 @@ class JobDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -29,7 +30,10 @@ class JobDetailsScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Job Details",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: "Satoshi",
+              fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
@@ -45,29 +49,44 @@ class JobDetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Company Name, Role, and Logo
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      "Company Name",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      "HighSpeed Studio",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Satoshi",
+                      ),
                     ),
                     SizedBox(height: 4),
                     Text(
-                      "Role Title",
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      "Senior Software Engineer",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey,
+                        fontFamily: "Satoshi",
+                      ),
                     ),
                   ],
                 ),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage(
-                      'assets/company_logo.png'), // Replace with your image
+                Container(
+                  height: 80, // Diameter of the circle
+                  width: 80,
+
+                  child: Padding(
+                    padding: const EdgeInsets.all(
+                        8.0), // Optional padding inside the circle
+                    child: SvgPicture.asset(
+                      'assets/company_logo.svg', // Path to your SVG
+                      fit: BoxFit
+                          .contain, // Ensures the SVG fits within the circle
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -87,13 +106,13 @@ class JobDetailsScreen extends StatelessWidget {
             Column(
               children: [
                 _buildDetailRow(
-                  svgPath: "assets/location.svg", // Replace with your SVG path
+                  svgPath: "assets/coins.svg", // Replace with your SVG path
                   title: "Location",
                   description: "San Francisco, CA",
                 ),
                 const SizedBox(height: 12),
                 _buildDetailRow(
-                  svgPath: "assets/salary.svg", // Replace with your SVG path
+                  svgPath: "assets/briefcase.svg", // Replace with your SVG path
                   title: "Salary",
                   description: "\$80k - \$120k/year",
                 ),
@@ -103,12 +122,20 @@ class JobDetailsScreen extends StatelessWidget {
             // Job Description
             const Text(
               "Job Description",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Satoshi",
+              ),
             ),
             const SizedBox(height: 10),
             const Text(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+                fontFamily: "Satoshi",
+              ),
             ),
             const SizedBox(height: 20),
             // Additional Details
@@ -119,10 +146,9 @@ class JobDetailsScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Colors.grey[200],
+                        radius: 10,
                         child: SvgPicture.asset(
-                          'assets/detail_icon.svg', // Replace with your SVG path
+                          'assets/great.svg',
                           height: 20,
                           width: 20,
                         ),
@@ -130,7 +156,7 @@ class JobDetailsScreen extends StatelessWidget {
                       const SizedBox(width: 12),
                       const Text(
                         "Additional detail text",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 14),
                       ),
                     ],
                   ),
@@ -160,7 +186,7 @@ class JobDetailsScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 12),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF1F41BB),
                   ),
                   child: const Text(
                     "Apply Now",
@@ -179,12 +205,12 @@ class JobDetailsScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         text,
-        style: const TextStyle(color: Colors.blue),
+        style: const TextStyle(color: Color(0xFF1F41BB)),
       ),
     );
   }
@@ -210,11 +236,15 @@ class JobDetailsScreen extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontFamily: "Satoshi",
+                  fontWeight: FontWeight.bold),
             ),
             Text(
               description,
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
+              style: const TextStyle(
+                  fontSize: 14, fontFamily: "Satoshi", color: Colors.grey),
             ),
           ],
         ),
